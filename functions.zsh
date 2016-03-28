@@ -61,16 +61,23 @@ if [[ $IS_MAC -eq 1 ]]; then
     # view man pages in Preview
     pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
 
+    function pfd() {
+        osascript 2>/dev/null <<EOF
+    tell application "Finder"
+      return POSIX path of (target of window 1 as alias)
+    end tell
+EOF
+    }
+
+    function man-preview() {
+        man -t "$@" | open -f -a Preview
+    }
 
     # Change directory to the current Finder directory.
-    cdf() {
-        target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-        if [ "$target" != "" ]; then
-            cd "$target"; pwd
-        else
-            echo 'No Finder window found' >&2
-        fi
+    function cdf() {
+        cd "$(pfd)"
     }
+
 fi
 
 # -------------------------------------------------------------------
