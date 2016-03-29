@@ -7,4 +7,4 @@
 # Disable sharing history.
 # Only here as a reminder, look to see if this interferes with tmux.
 # setopt NO_SHARE_HISTORY
-** TODO Merge zshrc/zshenv with .zshrc/.zshenv + check diff.
+** DONE Merge zshrc/zshenv with .zshrc/.zshenv + check diff.
