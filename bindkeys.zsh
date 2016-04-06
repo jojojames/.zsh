@@ -15,6 +15,10 @@
 # bindkey -v   # default to standard vi bindings, regardless of editor string
 
 ###################################
+# me
+###################################
+bindkey -e # use emacs bindings
+###################################
 # oh-my-zsh
 ###################################
 
@@ -45,9 +49,3 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 fi
 
 bindkey ' ' magic-space                               # [Space] - do history expansion
-
-###################################
-# me
-###################################
-bindkey -e # use emacs bindings
-
