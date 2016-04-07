@@ -71,3 +71,8 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 
 # gu shows a list of all developers and the number of commits they've made
 alias gu="git shortlog | grep -E '^[^ ]'"
+
+# -------------------------------------------------------------------
+# Work
+# -------------------------------------------------------------------
+alias start_redis='${EM_REDIS_HOME}/redis-server.sh start'
