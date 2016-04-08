@@ -19,6 +19,6 @@ then
 fi
 
 echo "linking $HOME/.zsh/zshrc to $HOME/.zshrc"
-ln -s $HOME/.zsh/zshrc $HOME/.zshrc
+ln -s $HOME/.zsh/.zshrc $HOME/.zshrc
 echo "linking $HOME/.zsh/zshenv to $HOME/.zshenv"
-ln -s $HOME/.zsh/zshenv $HOME/.zshenv
+ln -s $HOME/.zsh/.zshenv $HOME/.zshenv
