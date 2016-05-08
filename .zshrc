@@ -15,11 +15,6 @@ source ~/.zsh/history.zsh
 source ~/.zsh/zsh_hooks.zsh
 
 #########################################
-# https://github.com/rupa/z
-#########################################
-. ~/.zsh/z.sh
-
-#########################################
 # gpg security
 #########################################
 # combo of these two links
