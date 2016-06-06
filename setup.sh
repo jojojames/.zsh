@@ -1,11 +1,5 @@
 #!/bin/bash
 
-if [ ! -f $HOME/.z ];
-then
-    echo "creating $HOME/.z file"
-    touch $HOME/.z
-fi
-
 if [ -L $HOME/.zshrc ];
 then
     echo "moving $HOME/.zshrc to $HOME/.zshrc_backup"
