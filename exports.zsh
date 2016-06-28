@@ -37,7 +37,6 @@ SBIN_BIN=/usr/local/sbin
 HEROKU=/usr/local/heroku/bin
 ANDROID_TOOLS=$ANDROID_HOME/tools
 ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools
-POSTGRES=/Library/PostgreSQL/9.5/bin
 OPT_BIN=/opt/local/bin
 OPT_SBIN=/opt/local/sbin
 XAMP=/Applications/xampp/xamppfiles/bin
@@ -45,8 +44,11 @@ CABAL=$HOME/.cabal/bin
 REDIS=/usr/local/redis-2.8.7/bin
 RVM_BIN=$HOME/.rvm/bin
 CASK_ELISP_BIN=$HOME/.cask/bin
+RTAGS=$HOME/.bin/rtags/bin
 
-LLVM_BIN=/usr/local/opt/llvm/bin
+LLVM_BIN=/opt/local/libexec/llvm-3.9/bin
+# /usr/local/opt/llvm/bin
+export LIBCLANG_LIBDIR=/opt/local/libexec/llvm-3.9/lib
 
 export OMNISHARP=$HOME/Developer/omnisharp-server/OmniSharp/bin/Debug/
 export GOBIN=/usr/local/go/bin
@@ -83,7 +85,7 @@ export MONODROID_BIN=/Developer/MonoAndroid/usr/bin
 # END: WORK RELATED
 ##############
 
-export PATH=$USER_BIN:$RVM_BIN:$LLVM_BIN:$CASK_ELISP_BIN:$LOCAL_BIN:$GRAILS_HOME/bin:$GRADLE_HOME:$ERLANG:$CABAL:$SBIN_BIN:$HEROKU:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:$MONOTOUCH_BIN:$MONODROID_BIN:$POSTGRES:$OPT_BIN:$OPT_SBIN:$XAMP:$CASSANDRA:$REDIS:$PATH
+export PATH=$RTAGS:$USER_BIN:$RVM_BIN:$OPT_BIN:$OPT_SBIN:$LLVM_BIN:$CASK_ELISP_BIN:$LOCAL_BIN:$GRAILS_HOME/bin:$GRADLE_HOME:$ERLANG:$CABAL:$SBIN_BIN:$HEROKU:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:$MONOTOUCH_BIN:$MONODROID_BIN:$XAMP:$CASSANDRA:$REDIS:$PATH
 
 DOCTORJS=/usr/local/lib/jsctags
 NODE_PATH='$DOCTORJS:${NODE_PATH}'
