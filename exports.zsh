@@ -93,3 +93,7 @@ COPYFILE_DISABLE=true
 
 # disable automatic renaming
 export DISABLE_AUTO_TITLE="true"
+
+# Homebrew Analytics Opt Out
+# https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
+export HOMEBREW_NO_ANALYTICS=1
