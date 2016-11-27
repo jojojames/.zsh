@@ -17,15 +17,12 @@ export PAGER='less'
 export LC_COLLATE=C 
 
 # Virtual Environment Stuff
-
-# Currently this path is appended to dynamically when picking a ruby version
-# zshenv has already started PATH with rbenv so append only here
-# export PATH=$PATH~/bin:/usr/local/bin:/usr/local/sbin:~/bin
-
-#JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre
-#export JAVA_HOME=`/usr/libexec/java_home -v1.6`
-export JAVA_HOME=`/usr/libexec/java_home -v1.7`
-#export JAVA_HOME=`/usr/libexec/java_home -v1.8`
+if [[ -a /usr/libexec/java_home ]]; then
+    #JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre
+    #export JAVA_HOME=`/usr/libexec/java_home -v1.6`
+    #export JAVA_HOME=`/usr/libexec/java_home -v1.8`
+    export JAVA_HOME=`/usr/libexec/java_home -v1.7`
+fi
 
 export EDITOR=/usr/local/bin/mvim
 export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140702/sdk
