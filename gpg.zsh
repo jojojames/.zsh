@@ -10,7 +10,9 @@ if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
     export SSH_AUTH_SOCK
     export SSH_AGENT_PID
 else
-  eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+    if type "gpg-agent" > /dev/null; then
+        eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+    fi
 fi
 
 GPG_TTY=$(tty)
