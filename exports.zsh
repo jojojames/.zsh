@@ -25,6 +25,7 @@ export LC_COLLATE=C
 #JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre
 #export JAVA_HOME=`/usr/libexec/java_home -v1.6`
 export JAVA_HOME=`/usr/libexec/java_home -v1.7`
+#export JAVA_HOME=`/usr/libexec/java_home -v1.8`
 
 export EDITOR=/usr/local/bin/mvim
 export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140702/sdk
@@ -86,9 +87,6 @@ export MONODROID_BIN=/Developer/MonoAndroid/usr/bin
 ##############
 
 export PATH=$RTAGS:$USER_BIN:$RVM_BIN:$OPT_BIN:$OPT_SBIN:$LLVM_BIN:$CASK_ELISP_BIN:$LOCAL_BIN:$GRAILS_HOME/bin:$GRADLE_HOME:$ERLANG:$CABAL:$SBIN_BIN:$HEROKU:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:$MONOTOUCH_BIN:$MONODROID_BIN:$XAMP:$CASSANDRA:$REDIS:$PATH
-
-DOCTORJS=/usr/local/lib/jsctags
-NODE_PATH='$DOCTORJS:${NODE_PATH}'
 
 # don't create additional files during tar
 COPYFILE_DISABLE=true
