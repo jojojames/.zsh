@@ -73,6 +73,6 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 alias gu="git shortlog | grep -E '^[^ ]'"
 
 # -------------------------------------------------------------------
-# Work
+# WH
 # -------------------------------------------------------------------
-alias start_redis='${EM_REDIS_HOME}/redis-server.sh start'
+alias redis_start='${EM_REDIS_HOME}/redis-server.sh start'
