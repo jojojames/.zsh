@@ -25,7 +25,6 @@ if [[ -a /usr/libexec/java_home ]]; then
 fi
 
 export EDITOR=/usr/local/bin/mvim
-export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140702/sdk
 export XCODE_BUILD=$HOME/Library/Developer/Xcode/DerivedData
 
 # PATHS
@@ -33,8 +32,6 @@ USER_BIN=$HOME/.bin
 LOCAL_BIN=/usr/local/bin
 SBIN_BIN=/usr/local/sbin
 HEROKU=/usr/local/heroku/bin
-ANDROID_TOOLS=$ANDROID_HOME/tools
-ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools
 OPT_BIN=/opt/local/bin
 OPT_SBIN=/opt/local/sbin
 XAMP=/Applications/xampp/xamppfiles/bin
@@ -54,6 +51,12 @@ export GOBIN=/usr/local/go/bin
 ##############
 # BEGIN: WH RELATED
 ##############
+
+# Is $ANDROID_HOME a path variable other Android tools expect?
+export WH_ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140702/sdk
+WH_ANDROID_TOOLS=$WH_ANDROID_HOME/tools
+WH_ANDROID_PLATFORM_TOOLS=$WH_ANDROID_HOME/platform-tools
+
 export EMPROJECTROOT=$HOME/Developer/emroot
 export EM_SOFTWARE=/usr/local
 export EM_REPO=${EMPROJECTROOT}/EveryoneMessages
@@ -85,7 +88,7 @@ export MONODROID_BIN=/Developer/MonoAndroid/usr/bin
 
 # Add to $PATH variable.
 MY_PATHS=$RTAGS:$USER_BIN:$RVM_BIN:$CASK_ELISP_BIN:$LOCAL_BIN:$ERLANG:$CABAL
-LANGUAGE_PATHS=$ANDROID_PLATFORM_TOOLS:$MONOTOUCH_BIN:$MONODROID_BIN:$ANDROID_TOOLS
+LANGUAGE_PATHS=$WH_ANDROID_PLATFORM_TOOLS:$MONOTOUCH_BIN:$MONODROID_BIN:$WH_ANDROID_TOOLS
 TOOL_PATHS=$LLVM_BIN:$GRAILS_HOME/bin:$GRADLE_HOME:$XAMP:$CASSANDRA:$REDIS
 SYSTEM_PATHS=$OPT_BIN:$OPT_SBIN:$SBIN_BIN:$HEROKU
 
