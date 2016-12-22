@@ -52,7 +52,7 @@ export OMNISHARP=$HOME/Developer/omnisharp-server/OmniSharp/bin/Debug/
 export GOBIN=/usr/local/go/bin
 
 ##############
-# BEGIN: WORK RELATED
+# BEGIN: WH RELATED
 ##############
 export EMPROJECTROOT=$HOME/Developer/emroot
 export EM_SOFTWARE=/usr/local
@@ -80,7 +80,7 @@ export MONOTOUCH_BIN=/Developer/MonoTouch/usr/bin
 export MONODROID_BIN=/Developer/MonoAndroid/usr/bin
 
 ##############
-# END: WORK RELATED
+# END: WH RELATED
 ##############
 
 export PATH=$RTAGS:$USER_BIN:$RVM_BIN:$OPT_BIN:$OPT_SBIN:$LLVM_BIN:$CASK_ELISP_BIN:$LOCAL_BIN:$GRAILS_HOME/bin:$GRADLE_HOME:$ERLANG:$CABAL:$SBIN_BIN:$HEROKU:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:$MONOTOUCH_BIN:$MONODROID_BIN:$XAMP:$CASSANDRA:$REDIS:$PATH
