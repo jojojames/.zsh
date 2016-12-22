@@ -76,3 +76,14 @@ alias gu="git shortlog | grep -E '^[^ ]'"
 # WH
 # -------------------------------------------------------------------
 alias redis_start='${EM_REDIS_HOME}/redis-server.sh start'
+
+# -------------------------------------------------------------------
+# TB
+# -------------------------------------------------------------------
+function adbreset() {
+    adb kill-server
+    adb start-server
+    adb devices
+}
+
+
