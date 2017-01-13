@@ -15,6 +15,8 @@ export PAGER='less'
 
 # CTAGS Sorting in VIM/Emacs is better behaved with this in place
 export LC_COLLATE=C 
+# https://stackoverflow.com/questions/11287564/getting-sed-error-illegal-byte-sequence-in-bash
+export LC_ALL=C
 
 # Virtual Environment Stuff
 if [[ -a /usr/libexec/java_home ]]; then
