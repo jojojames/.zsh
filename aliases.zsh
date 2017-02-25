@@ -22,7 +22,42 @@ alias 'dus=du -sckx * | sort -nr' # directories sorted by size
 if [[ $IS_MAC -eq 1 ]]; then
     # rebuild Launch Services to remove duplicate entries on Open With menu
     alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.fram ework/Support/lsregister -kill -r -domain local -domain system -domain user'
+
+    emacs() {
+        # https://stackoverflow.com/questions/10171280/how-to-launch-gui-emacs-from-command-line-in-osx/26565655#26565655
+        EMACSPATH=/Applications/Emacs.app/Contents/MacOS
+
+        # Check if an emacs server is available
+        # (by checking to see if it will evaluate a lisp statement)
+        if ! (${EMACSPATH}/bin/emacsclient --eval "t"  2> /dev/null > /dev/null )
+        then
+            # There is no server available so,
+            # Start Emacs.app detached from the terminal
+            # and change Emac's directory to PWD
+            # ------------------------------------------
+            # Why use parens?
+            # https://apple.stackexchange.com/questions/133087/how-to-prevent-the-application-launched-in-terminal-from-undesirably-exiting
+            (nohup ${EMACSPATH}/Emacs --chdir "${PWD}" "${@}" 2>&1 > /dev/null &)
+        else
+            # The emacs server is available so use emacsclient
+            if [ "$#" -eq  "0" ]
+            then
+                # There are no arguments, so
+                # tell emacs to open a new window
+                # ${EMACSPATH}/bin/emacsclient --eval "(list-directory \"${PWD}\")"
+                ${EMACSPATH}/bin/emacsclient --eval "(dired \"${PWD}\")"
+            else
+                # There are arguments, so
+                # tell emacs to open them
+                ${EMACSPATH}/bin/emacsclient --no-wait "${@}"
+            fi
+
+            # Bring emacs to the foreground
+            ${EMACSPATH}/bin/emacsclient --eval "(x-focus-frame nil)"
+        fi
+    }
 fi
+
 # -------------------------------------------------------------------
 # me
 # -------------------------------------------------------------------
@@ -85,5 +120,3 @@ function adbreset() {
     adb start-server
     adb devices
 }
-
-
