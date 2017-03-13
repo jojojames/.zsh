@@ -11,11 +11,25 @@ alias ....='cd ../../..'
 # -------------------------------------------------------------------
 # directory information
 # -------------------------------------------------------------------
-alias lh='ls -d .*' # show hidden files/directories only
+
 alias l='ls -al'
-alias ls='ls -GFh' # Colorize output, add file type indicator, and put sizes in human readable format
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
-alias 'dus=du -sckx * | sort -nr' # directories sorted by size
+alias lh='ls -d .*' # show hidden files/directories only
+
+if [[ $IS_MAC -eq 1 ]]; then
+    alias ls='ls -GFh' # Colorize output, add file type indicator, and put sizes in human readable format
+    alias 'dus=du -sckx * | sort -nr' # directories sorted by size
+fi
+
+if [[ $IS_LINUX -eq 1 ]]; then
+    # This was taken from Xubuntu's .bashrc.
+    # Enable color support of ls and also add handy aliases.
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        alias ls='ls --color=auto'
+    fi
+fi
+
 # -------------------------------------------------------------------
 # Mac only
 # -------------------------------------------------------------------
@@ -66,8 +80,11 @@ alias tm='tmux -2 attach || tmux -2 new'
 # force tmux to use 256 colors
 alias tmux='TERM=screen-256color-bce tmux'
 
-# vim with no plugins
-alias vi='vim -u NONE'
+if [[ $IS_MAC -eq 1 ]]; then
+    # vim with no plugins
+    alias vi='vim -u NONE'
+fi
+
 alias jformat='python -m json.tool'
 # -------------------------------------------------------------------
 # remote machines
