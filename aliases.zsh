@@ -17,17 +17,10 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 alias lh='ls -d .*' # show hidden files/directories only
 
 if [[ $IS_MAC -eq 1 ]]; then
-    alias ls='ls -GFh' # Colorize output, add file type indicator, and put sizes in human readable format
-    alias 'dus=du -sckx * | sort -nr' # directories sorted by size
-fi
-
-if [[ $IS_LINUX -eq 1 ]]; then
-    # This was taken from Xubuntu's .bashrc.
-    # Enable color support of ls and also add handy aliases.
-    if [ -x /usr/bin/dircolors ]; then
-        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-        alias ls='ls --color=auto'
-    fi
+    # Colorize output, add file type indicator, and put sizes in human readable format
+    alias ls='ls -GFh'
+    # directories sorted by size
+    alias 'dus=du -sckx * | sort -nr'
 fi
 
 # -------------------------------------------------------------------

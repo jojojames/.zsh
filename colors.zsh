@@ -19,4 +19,18 @@ unset LSCOLORS
 #expor tLSCOLORS=gxfxcxdxbxegedabagacad
 
 export CLICOLOR=1
-export LS_COLORS=exfxcxdxbxegedabagacad
+
+if [[ $IS_LINUX -eq 1 ]]; then
+    # This was taken from Xubuntu's .bashrc.
+    # Enable color support of ls and also add handy aliases.
+    if [ -x /usr/bin/dircolors ]; then
+        test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        alias ls='ls --color=auto'
+        alias fgrep='fgrep --color=auto'
+        alias egrep='egrep --color=auto'
+    fi
+fi
+
+if [[ $IS_MAC -eq 1 ]]; then
+    export LS_COLORS=exfxcxdxbxegedabagacad
+fi
