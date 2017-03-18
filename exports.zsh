@@ -1,11 +1,5 @@
-# Setup terminal, and turn on colors
+# Setup terminal
 export TERM=xterm-256color
-export CLICOLOR=1
-export LSCOLORS=Gxfxcxdxbxegedabagacad
-
-# Enable color in grep
-export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='3;33'
 
 # This resolves issues install the mysql, postgres, and other gems with native non universal binary extensions
 export ARCHFLAGS='-arch x86_64'
@@ -108,6 +102,11 @@ TOOL_PATHS=$LLVM_BIN:$GRAILS_HOME/bin:$GRADLE_HOME:$XAMP:$CASSANDRA:$REDIS
 SYSTEM_PATHS=$OPT_BIN:$OPT_SBIN:$SBIN_BIN:$HEROKU
 
 export PATH=$MY_PATHS:$LANGUAGE_PATHS:$TOOL_PATHS:$SYSTEM_PATHS:$PATH
+
+if [[ $IS_LINUX -eq 1 ]]; then
+    LOVE_PATH=$HOME/Code/love/src
+    export PATH=$LOVE_PATH:$PATH
+fi
 
 # don't create additional files during tar
 COPYFILE_DISABLE=true

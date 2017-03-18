@@ -20,6 +20,10 @@ unset LSCOLORS
 
 export CLICOLOR=1
 
+# Enable color in grep
+alias grep='grep --color=auto'
+export GREP_COLOR='3;33'
+
 if [[ $IS_LINUX -eq 1 ]]; then
     # This was taken from Xubuntu's .bashrc.
     # Enable color support of ls and also add handy aliases.
@@ -32,5 +36,6 @@ if [[ $IS_LINUX -eq 1 ]]; then
 fi
 
 if [[ $IS_MAC -eq 1 ]]; then
+    export LSCOLORS=Gxfxcxdxbxegedabagacad
     export LS_COLORS=exfxcxdxbxegedabagacad
 fi
