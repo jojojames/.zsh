@@ -1,16 +1,3 @@
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
-
-function box_name {
-    [ -f ~/.box-name ] && cat ~/.box-name || hostname -s
-}
-
-# http://blog.joshdick.net/2012/12/30/my_git_prompt_for_zsh.html
-# copied from https://gist.github.com/4415470
-# Adapted from code found at <https://gist.github.com/1712320>.
- 
-#setopt promptsubst
 autoload -U colors && colors # Enable colors in prompt
 
 # Modify the colors and symbols in these variables as desired.
@@ -32,13 +19,8 @@ function parse_git_branch() {
 # If inside a Git repository, print its branch and state
 function git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "on %{$fg[blue]%}${git_where#(refs/heads/|tags/)} "
+  [ -n "$git_where" ] && echo "(%{$fg[blue]%}${git_where#(refs/heads/|tags/)}) "
 }
 
-function current_pwd {
-  echo $(pwd | sed -e "s,^$HOME,~,")
-}
-
-PROMPT='${PR_GREEN}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} ${PR_BOLD_BLUE}$(box_name)%{$reset_color%} %{$FG[239]%}in%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string)'
-
+PROMPT='${PR_BOLD_RED}%B%n%b%{$reset_color%}:${PR_BOLD_BLUE}%B%c/%b%{$reset_color%} $(git_prompt_string)%(!.#.$) '
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
