@@ -15,9 +15,6 @@ export PR_BOLD_WHITE PR_BOLD_BLACK
 # Clear LSCOLORS
 unset LSCOLORS
 
-# Main change, you can see directories on a dark background
-#expor tLSCOLORS=gxfxcxdxbxegedabagacad
-
 export CLICOLOR=1
 
 # Enable color in grep
@@ -29,6 +26,7 @@ if [[ $IS_LINUX -eq 1 ]]; then
     # Enable color support of ls and also add handy aliases.
     if [ -x /usr/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+        # di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
         alias ls='ls --color=auto'
         alias fgrep='fgrep --color=auto'
         alias egrep='egrep --color=auto'
@@ -37,5 +35,4 @@ fi
 
 if [[ $IS_MAC -eq 1 ]]; then
     export LSCOLORS=Gxfxcxdxbxegedabagacad
-    export LS_COLORS=exfxcxdxbxegedabagacad
 fi

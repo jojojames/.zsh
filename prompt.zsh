@@ -19,8 +19,8 @@ function parse_git_branch() {
 # If inside a Git repository, print its branch and state
 function git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "(%{$fg[blue]%}${git_where#(refs/heads/|tags/)}) "
+  [ -n "$git_where" ] && echo "(${PR_BOLD_RED}${git_where#(refs/heads/|tags/)}) "
 }
 
-PROMPT='${PR_BOLD_RED}%B%n%b%{$reset_color%}:${PR_BOLD_BLUE}%B%c/%b%{$reset_color%} $(git_prompt_string)%(!.#.$) '
+PROMPT='${PR_BOLD_CYAN}%B%n%b%{$reset_color%}:${PR_BOLD_BLUE}%B%c/%b%{$reset_color%} $(git_prompt_string)%(!.#.$)${PR_BLACK} '
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
