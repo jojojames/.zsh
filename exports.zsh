@@ -28,7 +28,6 @@ if [[ -a /usr/libexec/java_home ]]; then
 fi
 
 export EDITOR=/usr/local/bin/mvim
-export XCODE_BUILD=$HOME/Library/Developer/Xcode/DerivedData
 
 # PATHS
 user_bin=$HOME/.bin
@@ -37,21 +36,31 @@ sbin=/usr/local/sbin
 heroku_bin=/usr/local/heroku/bin
 opt_bin=/opt/local/bin
 opt_sbin=/opt/local/sbin
-xamp_bin=/Applications/xampp/xamppfiles/bin
 cabal_bin=$HOME/.cabal/bin
 rvm_bin=$HOME/.rvm/bin
 cask_elisp_bin=$HOME/.cask/bin
 rtags_bin=$HOME/.bin/rtags/bin
 go_bin=/usr/local/go/bin
-llvm_bin=/opt/local/libexec/llvm-3.9/bin
 
-# /usr/local/opt/llvm/bin
-export LIBCLANG_LIBDIR=/opt/local/libexec/llvm-3.9/lib
+if [[ $IS_MAC -eq 1 ]]; then
+    export XCODE_BUILD=$HOME/Library/Developer/Xcode/DerivedData
+
+    xamp_bin=/Applications/xampp/xamppfiles/bin
+    makeinfo_bin=/usr/local/Cellar/texinfo/6.3/bin
+
+    llvm_bin=/opt/local/libexec/llvm-3.9/bin
+
+    # /usr/local/opt/llvm/bin
+    export LIBCLANG_LIBDIR=/opt/local/libexec/llvm-3.9/lib
+
+    osx_paths=$makeinfo_bin:$llvm_bin:$xamp_bin
+    export PATH=$osx_paths:$PATH
+fi
 
 # Add to $PATH variable.
 my_paths=$user_bin:$local_bin
 language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin
-tool_paths=$llvm_bin:$xamp_bin:$heroku_bin
+tool_paths=$heroku_bin
 system_paths=$opt_bin:$opt_sbin:$sbin
 
 export PATH=$my_paths:$language_paths:$tool_paths:$system_paths:$PATH
