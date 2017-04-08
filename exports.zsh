@@ -4,14 +4,11 @@ export COPYFILE_DISABLE=true
 # Disable automatic renaming.
 export DISABLE_AUTO_TITLE="true"
 
-# Homebrew Analytics Opt Out
-# https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
-export HOMEBREW_NO_ANALYTICS=1
-
 # Setup terminal
 export TERM=xterm-256color
 
-# This resolves issues install the mysql, postgres, and other gems with native non universal binary extensions
+# This resolves issues install the mysql, postgres
+# and other gems with native non universal binary extensions
 export ARCHFLAGS='-arch x86_64'
 
 export LESS='--ignore-case --raw-control-chars'
@@ -42,21 +39,6 @@ cask_elisp_bin=$HOME/.cask/bin
 rtags_bin=$HOME/.bin/rtags/bin
 go_bin=/usr/local/go/bin
 
-if [[ $IS_MAC -eq 1 ]]; then
-    export XCODE_BUILD=$HOME/Library/Developer/Xcode/DerivedData
-
-    xamp_bin=/Applications/xampp/xamppfiles/bin
-    makeinfo_bin=/usr/local/Cellar/texinfo/6.3/bin
-
-    llvm_bin=/opt/local/libexec/llvm-3.9/bin
-
-    # /usr/local/opt/llvm/bin
-    export LIBCLANG_LIBDIR=/opt/local/libexec/llvm-3.9/lib
-
-    osx_paths=$makeinfo_bin:$llvm_bin:$xamp_bin
-    export PATH=$osx_paths:$PATH
-fi
-
 # Add to $PATH variable.
 my_paths=$user_bin:$local_bin
 language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin
@@ -72,6 +54,23 @@ if [[ $IS_LINUX -eq 1 ]]; then
 fi
 
 if [[ $IS_MAC -eq 1 ]]; then
+    # Homebrew Analytics Opt Out
+    # https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
+    export HOMEBREW_NO_ANALYTICS=1
+
+    export XCODE_BUILD=$HOME/Library/Developer/Xcode/DerivedData
+
+    xamp_bin=/Applications/xampp/xamppfiles/bin
+    makeinfo_bin=/usr/local/Cellar/texinfo/6.3/bin
+
+    llvm_bin=/opt/local/libexec/llvm-3.9/bin
+
+    # /usr/local/opt/llvm/bin
+    export LIBCLANG_LIBDIR=/opt/local/libexec/llvm-3.9/lib
+
+    osx_paths=$makeinfo_bin:$llvm_bin:$xamp_bin
+    export PATH=$osx_paths:$PATH
+
     dropbox_path=$HOME/Dropbox
     if [ -d $dropbox_path ]; then
         if [[ $USER -eq "jnguyen" ]]; then
