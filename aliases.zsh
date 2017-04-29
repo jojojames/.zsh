@@ -30,7 +30,7 @@ if [[ $IS_MAC -eq 1 ]]; then
     # rebuild Launch Services to remove duplicate entries on Open With menu
     alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.fram ework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
-    emacs() {
+    emacsc() {
         # https://stackoverflow.com/questions/10171280/how-to-launch-gui-emacs-from-command-line-in-osx/26565655#26565655
         EMACSPATH=/Applications/Emacs.app/Contents/MacOS
 
@@ -65,7 +65,7 @@ if [[ $IS_MAC -eq 1 ]]; then
     }
 fi
 
-alias e=emacs
+alias e=emacsc
 
 # -------------------------------------------------------------------
 # me
