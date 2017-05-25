@@ -24,7 +24,7 @@ if [[ -a /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v1.8`
 fi
 
-export EDITOR=/usr/local/bin/mvim
+export EDITOR=vim
 
 # PATHS
 user_bin=$HOME/.bin
