@@ -63,8 +63,10 @@ if [[ $IS_MAC -eq 1 ]]; then
     xamp_bin=/Applications/xampp/xamppfiles/bin
     makeinfo_bin=/usr/local/Cellar/texinfo/6.3/bin
 
-    llvm_bin=/usr/local/Cellar/llvm/4.0.0/bin
-    export LIBCLANG_LIBDIR=/usr/local/Cellar/llvm/4.0.0/lib
+    # /usr/local/opt/llvm/bin points to ~> /usr/local/Cellar/llvm/4.0.0/bin
+    llvm_bin=/usr/local/opt/llvm/bin
+    # /usr/local/opt/llvm/lib points to ~> /usr/local/Cellar/llvm/4.0.0/lib
+    export LIBCLANG_LIBDIR=/usr/local/opt/llvm/lib
 
     osx_paths=$makeinfo_bin:$llvm_bin:$xamp_bin
     export PATH=$osx_paths:$PATH
