@@ -132,3 +132,14 @@ function console () {
         tail -f /var/log/system.log
     fi
 }
+
+# -------------------------------------------------------------------
+# Open directory in OS File Explorer.
+# -------------------------------------------------------------------
+function open_in_file_explorer() {
+    if [[ $IS_MAC -eq 1 ]]; then
+        open .
+    else
+        echo "Implement opening folder after screenshot."
+    fi
+}

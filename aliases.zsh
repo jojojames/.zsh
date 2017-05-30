@@ -119,6 +119,34 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 # gu shows a list of all developers and the number of commits they've made
 alias gu="git shortlog | grep -E '^[^ ]'"
 
+function git_set_james() {
+    git config user.email james@jojojames.com
+}
+
+# -------------------------------------------------------------------
+# Android
+# -------------------------------------------------------------------
+function adb_screenshot() {
+    adb shell screencap -p /sdcard/screen.png
+    adb pull /sdcard/screen.png
+    adb shell rm /sdcard/screen.png
+    open_in_file_explorer
+}
+
+function adb_reset() {
+    adb kill-server
+    adb start-server
+    adb devices
+}
+
+function ios_screenshot() {
+    echo "This doesn't yet work on iOS 10, don't be confused it this fails."
+    idevicescreenshot temp.tiff
+    sips -s format png temp.tiff --out screenshot.png
+    rm ./temp.tiff
+    open_in_file_explorer
+}
+
 # -------------------------------------------------------------------
 # WH
 # -------------------------------------------------------------------
@@ -127,8 +155,11 @@ alias redis_start='${EM_REDIS_HOME}/redis-server.sh start'
 # -------------------------------------------------------------------
 # TB
 # -------------------------------------------------------------------
-function adbreset() {
-    adb kill-server
-    adb start-server
-    adb devices
+function tb_clean_app() {
+    cd ~/Code/mobile-app/
+    find . -d -name bin -print0 | xargs -0 rm -Rf
+    find . -d -name obj -print0 | xargs -0 rm -Rf
+    find . -d -name build -print0 | xargs -0 rm -Rf
+    find . -d -name Build -print0 | xargs -0 rm -Rf
+    rm -Rf packages
 }
