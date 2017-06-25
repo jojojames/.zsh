@@ -11,7 +11,7 @@ if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
     export SSH_AGENT_PID
 else
     if type "gpg-agent" > /dev/null; then
-        eval $( gpg-agent --daemon --write-env-file ~/.gpg-agent-info )
+        eval $( gpg-agent --daemon )
     fi
 fi
 
