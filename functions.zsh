@@ -210,6 +210,9 @@ if [[ $IS_MAC -eq 1 ]]; then
     }
 fi
 
+alias et='emacsclient -t'
+alias ec='emacsclient -n'
+alias en='emacsclient -n'
 alias e=emacsc
 
 # -------------------------------------------------------------------
