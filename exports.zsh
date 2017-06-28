@@ -19,6 +19,10 @@ export LC_COLLATE=C
 # https://stackoverflow.com/questions/11287564/getting-sed-error-illegal-byte-sequence-in-bash
 export LC_ALL=C
 
+# Node Version Manager
+export N_PREFIX=$HOME/.n
+export N_BIN=$N_PREFIX/bin
+
 # Virtual Environment Stuff
 if [[ -a /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v1.8`
@@ -38,9 +42,10 @@ rvm_bin=$HOME/.rvm/bin
 cask_elisp_bin=$HOME/.cask/bin
 rtags_bin=$HOME/.bin/rtags/bin
 go_bin=/usr/local/go/bin
+node_bin=$N_BIN
 
 # Add to $PATH variable.
-my_paths=$user_bin:$local_bin
+my_paths=$node_bin:$user_bin:$local_bin
 language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin
 tool_paths=$heroku_bin
 system_paths=$opt_bin:$opt_sbin:$sbin
