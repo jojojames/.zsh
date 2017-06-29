@@ -44,10 +44,11 @@ cask_elisp_bin=$HOME/.cask/bin
 rtags_bin=$HOME/.bin/rtags/bin
 go_bin=/usr/local/go/bin
 node_bin=$N_BIN
+rust_bin=$HOME/.cargo/bin
 
 # Add to $PATH variable.
 my_paths=$node_bin:$user_bin:$local_bin
-language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin
+language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin:$rust_bin
 tool_paths=$heroku_bin
 system_paths=$opt_bin:$opt_sbin:$sbin
 
