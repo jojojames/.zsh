@@ -77,8 +77,8 @@ if [[ $IS_MAC -eq 1 ]]; then
     osx_paths=$makeinfo_bin:$llvm_bin:$xamp_bin
     export PATH=$osx_paths:$PATH
 
-    tb_path=$HOME/.zsh/.zsh_private/tb.sh
-    wh_path=$HOME/.zsh/.zsh_private/wh.sh
+    tb_path=$HOME/.zsh/.zsh_private/tb.zsh
+    wh_path=$HOME/.zsh/.zsh_private/wh.zsh
 
     if [[ $USER == "jnguyen" ]]; then
         if [ -f $tb_path ]; then
