@@ -76,12 +76,16 @@ if [[ $IS_MAC -eq 1 ]]; then
     osx_paths=$makeinfo_bin:$llvm_bin:$xamp_bin
     export PATH=$osx_paths:$PATH
 
-    dropbox_path=$HOME/Dropbox
-    if [ -d $dropbox_path ]; then
-        if [[ $USER -eq "jnguyen" ]]; then
-            source $dropbox_path/Shell/tb.zsh
-        else
-            source $dropbox_path/Shell/wh.zsh
+    tb_path=$HOME/.zsh/.zsh_private/tb.sh
+    wh_path=$HOME/.zsh/.zsh_private/wh.sh
+
+    if [[ $USER -eq "jnguyen" ]]; then
+        if [ -f $tb_path ]; then
+            source $tb_path
+        fi
+    else
+        if [ -f $wh_path ]; then
+            source $wh_path
         fi
     fi
 fi
