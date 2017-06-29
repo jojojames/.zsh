@@ -20,6 +20,7 @@ export LC_COLLATE=C
 export LC_ALL=C
 
 # Node Version Manager
+# npm install -g n
 export N_PREFIX=$HOME/.n
 export N_BIN=$N_PREFIX/bin
 
