@@ -80,7 +80,7 @@ if [[ $IS_MAC -eq 1 ]]; then
     tb_path=$HOME/.zsh/.zsh_private/tb.sh
     wh_path=$HOME/.zsh/.zsh_private/wh.sh
 
-    if [[ $USER -eq "jnguyen" ]]; then
+    if [[ $USER == "jnguyen" ]]; then
         if [ -f $tb_path ]; then
             source $tb_path
         fi
