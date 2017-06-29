@@ -84,6 +84,20 @@ if [[ $IS_MAC -eq 1 ]]; then
         if [ -f $tb_path ]; then
             source $tb_path
         fi
+    elif [[ $HOST == "jamesretina.local" ]]; then
+        # Android
+        export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140702/sdk
+        android_tools=$ANDROID_HOME/tools
+        android_platform_tools=$ANDROID_HOME/platform-tools
+        export PATH=$android_tools:$android_platform_tools:$PATH
+
+        # Cocos
+        export COCOS_CONSOLE_ROOT=$HOME/Code/cocos2d-x/tools/cocos2d-console/bin
+        export PATH=$COCOS_CONSOLE_ROOT:$PATH
+        export COCOS_X_ROOT=$HOME/Code
+        export PATH=$COCOS_X_ROOT:$PATH
+        export COCOS_TEMPLATES_ROOT=$HOME/Code/cocos2d-x/templates
+        export PATH=$COCOS_TEMPLATES_ROOT:$PATH
     else
         if [ -f $wh_path ]; then
             source $wh_path
