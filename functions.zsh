@@ -297,20 +297,3 @@ function ios_screenshot() {
     rm ./temp.tiff
     open_in_file_explorer
 }
-
-# -------------------------------------------------------------------
-# WH
-# -------------------------------------------------------------------
-alias redis_start='${EM_REDIS_HOME}/redis-server.sh start'
-
-# -------------------------------------------------------------------
-# TB
-# -------------------------------------------------------------------
-function tb_clean_app() {
-    cd ~/Code/mobile-app/
-    find . -d -name bin -print0 | xargs -0 rm -Rf
-    find . -d -name obj -print0 | xargs -0 rm -Rf
-    find . -d -name build -print0 | xargs -0 rm -Rf
-    find . -d -name Build -print0 | xargs -0 rm -Rf
-    rm -Rf packages
-}
