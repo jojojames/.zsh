@@ -29,6 +29,9 @@ if [[ -a /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v1.8`
 fi
 
+# Specify $MAILDIR for notmuch and ~maybe~ mu.
+export MAILDIR=$HOME/Mail
+
 export EDITOR=vim
 
 # PATHS
