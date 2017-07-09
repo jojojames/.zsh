@@ -45,4 +45,9 @@ et() {
     fi
 }
 
+kill_emacs_server() {
+    # Kill emacs --daemon with name 'term'.
+    kill $(ps aux | grep "[e]macs.*term$" | awk '{print $2}')
+}
+
 alias e=eg
