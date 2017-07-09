@@ -22,7 +22,7 @@ eg() {
     else
         if [ "$#" -eq "0" ]
         then
-            emacsclient -s term -a "" -c -n --eval "(switch-to-buffer \"*scratch\")"
+            emacsclient -s term -a "" -c -n --eval "(switch-to-buffer \"*scratch*\")"
         else
             emacsclient -s term -a "" -c -n "${@}"
         fi
@@ -38,7 +38,7 @@ et() {
     else
         if [ "$#" -eq "0" ]
         then
-            emacsclient -s term -a "" -t --eval "(switch-to-buffer \"*scratch\")"
+            emacsclient -s term -a "" -t --eval "(switch-to-buffer \"*scratch*\")"
         else
             emacsclient -s term -a "" -t "${@}"
         fi
