@@ -7,9 +7,9 @@
 em_gui() {
     if [ "$#" -eq "0" ]
     then
-        emacsclient -s 26 --eval "(switch-to-buffer \"*scratch*\")"
+        emacsclient --eval "(switch-to-buffer \"*scratch*\")"
     else
-        emacsclient -s 26 -n "${@}"
+        emacsclient -n "${@}"
     fi
 }
 
