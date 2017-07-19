@@ -42,6 +42,7 @@ heroku_bin=/usr/local/heroku/bin
 opt_bin=/opt/local/bin
 opt_sbin=/opt/local/sbin
 usr_sbin=/usr/sbin
+sbin=/sbin
 cabal_bin=$HOME/.cabal/bin
 rvm_bin=$HOME/.rvm/bin
 cask_elisp_bin=$HOME/.cask/bin
@@ -54,7 +55,7 @@ rust_bin=$HOME/.cargo/bin
 my_paths=$node_bin:$user_bin:$local_bin
 language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin:$rust_bin
 tool_paths=$heroku_bin
-system_paths=$opt_bin:$opt_sbin:$sbin:$usr_sbin
+system_paths=$opt_bin:$opt_sbin:$sbin:$usr_sbin:$sbin
 
 export PATH=$my_paths:$language_paths:$tool_paths:$system_paths:$PATH
 
