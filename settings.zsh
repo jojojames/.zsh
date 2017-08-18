@@ -37,7 +37,7 @@ setopt hist_reduce_blanks
 # don't execute, just expand history
 setopt hist_verify
 # imports new commands and appends typed commands to history
-#setopt share_history
+setopt share_history
 
 HISTSIZE=10000
 SAVEHIST=9000
