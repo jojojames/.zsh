@@ -39,6 +39,10 @@ setopt hist_verify
 # imports new commands and appends typed commands to history
 #setopt share_history
 
+HISTSIZE=10000
+SAVEHIST=9000
+HISTFILE=~/.zsh_history
+
 # ===== Completion
 # When completing from the middle of a word, move the cursor to the end of the word
 setopt always_to_end
