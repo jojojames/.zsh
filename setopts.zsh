@@ -39,8 +39,8 @@ setopt hist_verify
 # imports new commands and appends typed commands to history
 #setopt share_history
 
-# ===== Completion 
-# When completing from the middle of a word, move the cursor to the end of the word    
+# ===== Completion
+# When completing from the middle of a word, move the cursor to the end of the word
 setopt always_to_end
 # show completion menu on successive tab press. needs unsetop menu_complete to work
 setopt auto_menu
