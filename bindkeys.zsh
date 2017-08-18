@@ -32,4 +32,5 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
     bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
-bindkey ' ' magic-space                               # [Space] - do history expansion
+# [Space] - Do history expansion.
+bindkey ' ' magic-space
