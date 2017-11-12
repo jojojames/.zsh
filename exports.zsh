@@ -90,7 +90,7 @@ if [[ $IS_MAC -eq 1 ]]; then
         if [ -f $tb_path ]; then
             source $tb_path
         fi
-    elif [[ $HOST == "jamesretina.local" ]]; then
+    elif [[ $USER == "james" ]]; then
         # Android
         export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140702/sdk
         android_tools=$ANDROID_HOME/tools
