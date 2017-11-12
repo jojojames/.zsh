@@ -24,6 +24,12 @@ export LC_ALL=C
 export N_PREFIX=$HOME/.n
 export N_BIN=$N_PREFIX/bin
 
+
+# FZF
+export FZF_DEFAULT_COMMAND='(git ls-files --exclude-standard --others --cached ||
+        find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+           sed s/^..//) 2> /dev/null'
+
 # Virtual Environment Stuff
 if [[ -a /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v1.8`
