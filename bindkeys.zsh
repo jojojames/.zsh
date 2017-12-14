@@ -1,10 +1,5 @@
-###################################
-# me
-###################################
-bindkey -e # use emacs bindings
-###################################
-# oh-my-zsh
-###################################
+# Use Emacs bindings.
+bindkey -e
 
 # Make sure that the terminal is in application mode when zle is active, since
 # only then values from $terminfo are valid

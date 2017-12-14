@@ -10,61 +10,6 @@ if [[ $(uname) = 'Darwin' ]]; then
     IS_MAC=1
 fi
 
-if [[ -x `which brew` ]]; then
-    HAS_BREW=1
-fi
-
-if [[ -x `which apt-get` ]]; then
-    HAS_APT=1
-fi
-
-if [[ -x `which yum` ]]; then
-    HAS_YUM=1
-fi
-
-# -------------------------------------------------------------------
-# compressed file expander
-# (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
-# -------------------------------------------------------------------
-ex() {
-    if [[ -f $1 ]]; then
-        case $1 in
-            *.tar.bz2) tar xvjf $1;;
-            *.tar.gz) tar xvzf $1;;
-            *.tar.xz) tar xvJf $1;;
-            *.tar.lzma) tar --lzma xvf $1;;
-            *.bz2) bunzip $1;;
-            *.rar) unrar $1;;
-            *.gz) gunzip $1;;
-            *.tar) tar xvf $1;;
-            *.tbz2) tar xvjf $1;;
-            *.tgz) tar xvzf $1;;
-            *.zip) unzip $1;;
-            *.Z) uncompress $1;;
-            *.7z) 7z x $1;;
-            *.dmg) hdiutul mount $1;; # mount OS X disk images
-            *) echo "'$1' cannot be extracted via >ex<";;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
-
-# -------------------------------------------------------------------
-# any function from http://onethingwell.org/post/14669173541/any
-# search for running processes
-# -------------------------------------------------------------------
-any() {
-    emulate -L zsh
-    unsetopt KSH_ARRAYS
-    if [[ -z "$1" ]] ; then
-        echo "any - grep for process(es) by keyword" >&2
-        echo "Usage: any " >&2 ; return 1
-    else
-        ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
-    fi
-}
-
 # -------------------------------------------------------------------
 # display a neatly formatted path
 # -------------------------------------------------------------------
@@ -82,26 +27,6 @@ path() {
 # Mac specific functions
 # -------------------------------------------------------------------
 if [[ $IS_MAC -eq 1 ]]; then
-    # view man pages in Preview
-    pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
-
-    function pfd() {
-        osascript 2>/dev/null <<EOF
-    tell application "Finder"
-      return POSIX path of (target of window 1 as alias)
-    end tell
-EOF
-    }
-
-    function man-preview() {
-        man -t "$@" | open -f -a Preview
-    }
-
-    # Change directory to the current Finder directory.
-    function cdf() {
-        cd "$(pfd)"
-    }
-
     # Rebuild Launch Services to remove duplicate entries on Open With menu.
     alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.fram ework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
@@ -178,11 +103,6 @@ fi
 alias tm='tmux -2 attach || tmux -2 new'
 # force tmux to use 256 colors
 # alias tmux='TERM=screen-256color-bce tmux'
-
-if [[ $IS_MAC -eq 1 ]]; then
-    # vim with no plugins
-    alias vi='vim -u NONE'
-fi
 
 alias jformat='python -m json.tool'
 # -------------------------------------------------------------------
