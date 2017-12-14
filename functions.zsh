@@ -93,7 +93,7 @@ if [[ $IS_MAC -eq 1 ]]; then
     # Colorize output, add file type indicator, and put sizes in human readable format
     alias ls='ls -GFh'
     # directories sorted by size
-    alias 'dus=du -sckx * | sort -nr'
+    alias dus='du -sckx * | sort -nr'
 fi
 
 # -------------------------------------------------------------------
