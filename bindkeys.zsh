@@ -27,5 +27,16 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
     bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+# Make C-p and C-n behave like Up/Down arrows.
+bindkey '^P' up-line-or-beginning-search
+bindkey '^N' down-line-or-beginning-search
+
 # [Space] - Do history expansion.
 bindkey ' ' magic-space
+
+# This should be called beforehand.
+# This is currently called in completion.zsh.
+# zmodload -i zsh/complist
+# https://www.zsh.org/mla/users/2009/msg01018.html
+# Accept completion and enter to avoid having to press RET twice.
+bindkey -M menuselect '^M' .accept-line
