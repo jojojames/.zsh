@@ -48,6 +48,6 @@ function git_prompt_string() {
     [ -n "$git_where" ] && echo "(${PR_BOLD_RED}${git_where#(refs/heads/|tags/)}) "
 }
 
-PROMPT='${PR_BOLD_GREEN}%B%c/%b%{$reset_color%} $(git_prompt_string)%(!.#.$)${PR_BLACK}%{$reset_color%} '
+PROMPT='${PR_BOLD_BLUE}%B%c/%b%{$reset_color%} $(git_prompt_string)%(!.#.$)${PR_BLACK}%{$reset_color%} '
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
