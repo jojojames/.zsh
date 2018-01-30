@@ -43,6 +43,9 @@ export EDITOR=vim
 # Golang
 export GOPATH=$HOME/Code/go
 
+# https://stackoverflow.com/questions/18149601/go-install-always-fails-no-install-directory-outside-gopath
+export GOBIN=$GOPATH/bin
+
 # PATHS
 user_bin=$HOME/.bin
 local_bin=/usr/local/bin
@@ -57,7 +60,7 @@ rvm_bin=$HOME/.rvm/bin
 cask_elisp_bin=$HOME/.cask/bin
 rtags_bin=$HOME/.bin/rtags/bin
 go_bin=/usr/local/go/bin
-gopath_bin=$GOPATH/bin
+gopath_bin=$GOBIN
 node_bin=$N_BIN
 rust_bin=$HOME/.cargo/bin
 
