@@ -49,7 +49,7 @@ export GOBIN=$GOPATH/bin
 # PATHS
 user_bin=$HOME/.bin
 local_bin=/usr/local/bin
-sbin=/usr/local/sbin
+local_sbin=/usr/local/sbin
 heroku_bin=/usr/local/heroku/bin
 opt_bin=/opt/local/bin
 opt_sbin=/opt/local/sbin
@@ -68,7 +68,7 @@ rust_bin=$HOME/.cargo/bin
 my_paths=$node_bin:$user_bin:$local_bin
 language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin:$rust_bin
 tool_paths=$heroku_bin:$gopath_bin
-system_paths=$opt_bin:$opt_sbin:$sbin:$usr_sbin:$sbin
+system_paths=$opt_bin:$opt_sbin:$local_sbin:$sbin:$usr_sbin
 
 export PATH=$my_paths:$language_paths:$tool_paths:$system_paths:$PATH
 
