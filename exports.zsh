@@ -63,10 +63,11 @@ go_bin=/usr/local/go/bin
 gopath_bin=$GOBIN
 node_bin=$N_BIN
 rust_bin=$HOME/.cargo/bin
+python_bin=/usr/local/opt/python/libexec/bin
 
 # Add to $PATH variable.
 my_paths=$node_bin:$user_bin:$local_bin
-language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin:$rust_bin
+language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin:$rust_bin:$python_bin
 tool_paths=$heroku_bin:$gopath_bin
 system_paths=$opt_bin:$opt_sbin:$local_sbin:$sbin:$usr_sbin
 
