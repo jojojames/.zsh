@@ -109,7 +109,6 @@ alias jformat='python -m json.tool'
 # remote machines
 # -------------------------------------------------------------------
 alias seedbox='ssh jojojames@genesis.whatbox.ca'
-alias syno='ssh -p 4000 james@jojobebe.noip.me'
 # -------------------------------------------------------------------
 # Git
 # -------------------------------------------------------------------
