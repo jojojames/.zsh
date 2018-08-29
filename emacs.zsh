@@ -50,4 +50,20 @@ kill_emacs_server() {
     kill $(ps aux | grep "[e]macs.*term$" | awk '{print $2}')
 }
 
+magit() {
+    emacsclient -n -e "(magit-status)"
+    raise_emacs
+}
+
+dired() {
+    emacsclient -n -e "(dired-jump)"
+    raise_emacs
+}
+
+raise_emacs() {
+    if [[ $IS_MAC -eq 1 ]]; then
+        open -a Emacs
+    fi
+}
+
 alias e=eg
