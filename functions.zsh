@@ -136,14 +136,3 @@ function adb_reset() {
     adb start-server
     adb devices
 }
-
-# -------------------------------------------------------------------
-# iOS
-# -------------------------------------------------------------------
-function ios_screenshot() {
-    echo "This doesn't yet work on iOS 10, don't be confused it this fails."
-    idevicescreenshot temp.tiff
-    sips -s format png temp.tiff --out screenshot.png
-    rm ./temp.tiff
-    open_in_file_explorer
-}
