@@ -64,7 +64,7 @@ function console () {
 # -------------------------------------------------------------------
 # Open directory in OS File Explorer.
 # -------------------------------------------------------------------
-function open_in_file_explorer() {
+function finder() {
     if [[ $IS_MAC -eq 1 ]]; then
         open .
     else
