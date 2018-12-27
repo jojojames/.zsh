@@ -74,9 +74,8 @@ system_paths=$opt_bin:$opt_sbin:$local_sbin:$sbin:$usr_sbin
 export PATH=$my_paths:$language_paths:$tool_paths:$system_paths:$PATH
 
 if [[ $IS_LINUX -eq 1 ]]; then
-    love_path=$HOME/Code/love/src
     fzf_path=$HOME/.fzf/bin
-    export PATH=$fzf_path:$love_path:$PATH
+    export PATH=$fzf_path:$PATH
 fi
 
 if [[ $IS_MAC -eq 1 ]]; then
