@@ -96,14 +96,7 @@ if [[ $IS_MAC -eq 1 ]]; then
     osx_paths=$makeinfo_bin:$llvm_bin
     export PATH=$PATH:$osx_paths
 
-    tb_path=$HOME/.zsh/.zsh_private/tb.zsh
-    wh_path=$HOME/.zsh/.zsh_private/wh.zsh
-
-    if [[ $USER == "jnguyen" ]]; then
-        if [ -f $tb_path ]; then
-            source $tb_path
-        fi
-    elif [[ $USER == "james" ]]; then
+    if [[ $USER == "james" ]]; then
         # Android
         export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140702/sdk
         android_tools=$ANDROID_HOME/tools
@@ -117,9 +110,5 @@ if [[ $IS_MAC -eq 1 ]]; then
         export PATH=$COCOS_X_ROOT:$PATH
         export COCOS_TEMPLATES_ROOT=$HOME/Code/cocos2d-x/templates
         export PATH=$COCOS_TEMPLATES_ROOT:$PATH
-    else
-        if [ -f $wh_path ]; then
-            source $wh_path
-        fi
     fi
 fi
