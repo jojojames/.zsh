@@ -108,7 +108,9 @@ alias jformat='python -m json.tool'
 # -------------------------------------------------------------------
 # remote machines
 # -------------------------------------------------------------------
-alias seedbox='ssh jojojames@genesis.whatbox.ca'
+
+# This requires ~/.ssh/config to exist with the right configuration.
+alias seedbox='ssh genesis'
 
 # curiosities
 # gsh shows the number of commits for the current repos for all developers
