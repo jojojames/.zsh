@@ -18,4 +18,4 @@ echo "linking $HOME/.zsh/.zshenv to $HOME/.zshenv"
 ln -s $HOME/.zsh/.zshenv $HOME/.zshenv
 
 echo "Removing /etc/zprofile."
-rm /etc/zprofile
+sudo rm /etc/zprofile
