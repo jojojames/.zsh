@@ -44,17 +44,6 @@ function myip() {
 }
 
 # -------------------------------------------------------------------
-# Open directory in OS File Explorer.
-# -------------------------------------------------------------------
-function finder() {
-    if [[ $IS_MAC -eq 1 ]]; then
-        open .
-    else
-        echo "Implement opening folder after screenshot."
-    fi
-}
-
-# -------------------------------------------------------------------
 # use nocorrect alias to prevent auto correct from "fixing" these
 # -------------------------------------------------------------------
 #alias foobar='nocorrect foobar'
@@ -83,8 +72,6 @@ fi
 # -------------------------------------------------------------------
 # -2 for color, || to attach to a current session or create a new session
 alias tm='tmux -2 attach || tmux -2 new'
-# force tmux to use 256 colors
-# alias tmux='TERM=screen-256color-bce tmux'
 
 alias jformat='python -m json.tool'
 # -------------------------------------------------------------------
@@ -108,13 +95,6 @@ function git_set_james() {
 # -------------------------------------------------------------------
 # Android
 # -------------------------------------------------------------------
-function adb_screenshot() {
-    adb shell screencap -p /sdcard/screen.png
-    adb pull /sdcard/screen.png
-    adb shell rm /sdcard/screen.png
-    open_in_file_explorer
-}
-
 function adb_reset() {
     adb kill-server
     adb start-server
