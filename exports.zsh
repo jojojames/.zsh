@@ -110,4 +110,11 @@ if [[ $IS_MAC -eq 1 ]]; then
         export COCOS_TEMPLATES_ROOT=$HOME/Code/cocos2d-x/templates
         export PATH=$COCOS_TEMPLATES_ROOT:$PATH
     fi
+
+    if [[ $USER == "jameshn" ]]; then
+        # Use provided git instead of system git.
+        # This is here instead of yt.zsh because we need this set up before
+        # we do the repository clone (for yt.zsh).
+        export PATH=/usr/local/git/current/bin:$PATH
+    fi
 fi
