@@ -24,7 +24,6 @@ export LC_ALL=C
 export N_PREFIX=$HOME/.n
 export N_BIN=$N_PREFIX/bin
 
-
 # FZF
 export FZF_DEFAULT_COMMAND='(git ls-files --exclude-standard --others --cached ||
         find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
@@ -101,14 +100,6 @@ if [[ $IS_MAC -eq 1 ]]; then
         android_tools=$ANDROID_HOME/tools
         android_platform_tools=$ANDROID_HOME/platform-tools
         export PATH=$android_tools:$android_platform_tools:$PATH
-
-        # Cocos
-        export COCOS_CONSOLE_ROOT=$HOME/Code/cocos2d-x/tools/cocos2d-console/bin
-        export PATH=$COCOS_CONSOLE_ROOT:$PATH
-        export COCOS_X_ROOT=$HOME/Code
-        export PATH=$COCOS_X_ROOT:$PATH
-        export COCOS_TEMPLATES_ROOT=$HOME/Code/cocos2d-x/templates
-        export PATH=$COCOS_TEMPLATES_ROOT:$PATH
     fi
 
     if [[ $USER == "jameshn" ]]; then
