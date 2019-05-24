@@ -1,47 +1,16 @@
 # -------------------------------------------------------------------
 # Emacs
 # -------------------------------------------------------------------
-# alias et='emacsclient -a "" -t'
-# alias eg='emacsclient -a "" -c'
+if [[ $IS_MAC -eq 1 ]]; then
+    alias emacsclient=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+fi
 
-em_gui() {
+emacsclient2() {
     if [ "$#" -eq "0" ]
     then
-        emacsclient --eval "(switch-to-buffer \"*scratch*\")"
+        dired
     else
-        emacsclient -n "${@}"
-    fi
-}
-
-eg() {
-    # If called inside Emacs, open in the same Emacs instance.
-    # If called a terminal, use emacsclient from a gui frame.
-    if [ ! "$EMACS" = "" ]
-    then
-        em_gui "${@}"
-    else
-        if [ "$#" -eq "0" ]
-        then
-            emacsclient -a "" -c -n --eval "(switch-to-buffer \"*scratch*\")"
-        else
-            emacsclient -a "" -c -n "${@}"
-        fi
-    fi
-}
-
-et() {
-    # If called inside Emacs, behaves the same as eg.
-    # If called inside a terminal, use emacsclient from inside the terminal.
-    if [ ! "$EMACS" = "" ]
-    then
-        em_gui "${@}"
-    else
-        if [ "$#" -eq "0" ]
-        then
-            emacsclient -a "" -t --eval "(switch-to-buffer \"*scratch*\")"
-        else
-            emacsclient -a "" -t "${@}"
-        fi
+        emacsclient --no-wait --quiet "${@}"
     fi
 }
 
@@ -52,18 +21,10 @@ kill_emacs_server() {
 
 magit() {
     emacsclient -n -e "(magit-status)"
-    raise_emacs
 }
 
 dired() {
     emacsclient -n -e "(dired-jump)"
-    raise_emacs
 }
 
-raise_emacs() {
-    if [[ $IS_MAC -eq 1 ]]; then
-        open -a Emacs
-    fi
-}
-
-alias e=eg
+alias e=emacsclient2
