@@ -88,7 +88,7 @@ alias jformat='python -m json.tool'
 # -------------------------------------------------------------------
 
 # This requires ~/.ssh/config to exist with the right configuration.
-alias seedbox='ssh genesis'
+alias seedbox='ssh venus'
 
 # curiosities
 # gsh shows the number of commits for the current repos for all developers
