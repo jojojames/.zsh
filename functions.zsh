@@ -10,6 +10,10 @@ if [[ $(uname) = 'Darwin' ]]; then
     IS_MAC=1
 fi
 
+if [[ $(uname) = 'FreeBSD' ]]; then
+    IS_BSD=1
+fi
+
 # -------------------------------------------------------------------
 # Source a file for zsh if file exists.
 # -------------------------------------------------------------------
@@ -89,6 +93,9 @@ alias jformat='python -m json.tool'
 
 # This requires ~/.ssh/config to exist with the right configuration.
 alias seedbox='ssh venus'
+alias rslsync='~/rslsync/rslsync --config ~/.rslsync/rslsync.conf'
+
+alias bsd='ssh james@jamesbsd'
 
 # curiosities
 # gsh shows the number of commits for the current repos for all developers
