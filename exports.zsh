@@ -4,8 +4,14 @@ export COPYFILE_DISABLE=true
 # Disable automatic renaming.
 export DISABLE_AUTO_TITLE="true"
 
-# Setup terminal
-export TERM=xterm-256color
+# Only set xterm-256color if we're not being started or connected from emacs.
+# We need this because emacs' tramp doesn't behave well with zsh prompts.
+# In emacs.zsh, we check the $TERM variable and make the prompt dumb so emacs
+# can better process it. Avoid setting $TERM here in order to do so.
+if ! [[ "$TERM" == "dumb" || "$TERM" == "tramp" ]]
+then
+    export TERM=xterm-256color
+fi
 
 # This resolves issues install the mysql, postgres
 # and other gems with native non universal binary extensions

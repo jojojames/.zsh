@@ -32,12 +32,11 @@ alias e=emacsclient2
 # https://www.reddit.com/r/emacs/comments/7f62pn/tramp_hang_after_sending_password/
 # Emacs tramp fix
 # https://wxchen.wordpress.com/2012/05/20/getting-tramp-in-emacs-to-work-with-zsh-as-default-shell/
-if [[ "$TERM" == "dumb" ]]
+if [[ "$TERM" == "dumb" || "$TERM" == "tramp" ]]
 then
     unsetopt zle
     unsetopt prompt_cr
     unsetopt prompt_subst
-    unfunction precmd
-    unfunction preexec
-    PS1='$ '
+    PS1='$'
+    PROMPT='$ '
 fi
