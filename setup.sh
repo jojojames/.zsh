@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -L $HOME/.zshrc ];
 then
