@@ -1,4 +1,6 @@
-autoload -U compinit && compinit
+# -u ignores warnings
+# https://stackoverflow.com/questions/13762280/zsh-compinit-insecure-directories
+autoload -U compinit && compinit -u
 zmodload -i zsh/complist
 
 # man zshcontrib
