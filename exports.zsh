@@ -53,30 +53,28 @@ export GOBIN=$GOPATH/bin
 
 # PATHS
 user_bin=$HOME/.bin
-local_bin=/usr/local/bin
-local_sbin=/usr/local/sbin
-heroku_bin=/usr/local/heroku/bin
-opt_bin=/opt/local/bin
-opt_sbin=/opt/local/sbin
-usr_sbin=/usr/sbin
-sbin=/sbin
-cabal_bin=$HOME/.cabal/bin
 rvm_bin=$HOME/.rvm/bin
+cabal_bin=$HOME/.cabal/bin
 cask_elisp_bin=$HOME/.cask/bin
-rtags_bin=$HOME/.bin/rtags/bin
+rust_bin=$HOME/.cargo/bin
+
 go_bin=/usr/local/go/bin
 gopath_bin=$GOBIN
 node_bin=$N_BIN
-rust_bin=$HOME/.cargo/bin
 python_bin=/usr/local/opt/python/libexec/bin
 
-# Add to $PATH variable.
-my_paths=$node_bin:$user_bin:$local_bin
-language_paths=$go_bin:$cabal_bin:$cask_elisp_bin:$rvm_bin:$rtags_bin:$rust_bin:$python_bin
-tool_paths=$heroku_bin:$gopath_bin
-system_paths=$opt_bin:$opt_sbin:$local_sbin:$sbin:$usr_sbin
+local_bin=/usr/local/bin
+local_sbin=/usr/local/sbin
+opt_bin=/opt/local/bin
+opt_sbin=/opt/local/sbin
+sbin=/sbin
+usr_sbin=/usr/sbin
 
-export PATH=$my_paths:$language_paths:$tool_paths:$system_paths:$PATH
+home_paths=$user_bin:$rvm_bin:$cabal_bin:$cask_elisp_bin:$rust_bin
+lang_paths=$go_bin:$gopath_bin:$node_bin:$python_bin
+system_paths=$local_bin:$local_sbin:$opt_bin:$opt_sbin:$sbin:$usr_sbin
+
+export PATH=$home_paths:$lang_paths:$system_paths:$PATH
 
 if [[ $IS_LINUX -eq 1 ]]; then
     fzf_path=$HOME/.fzf/bin
