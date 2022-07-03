@@ -117,3 +117,7 @@ if [[ $IS_MAC -eq 1 ]]; then
         export PATH=/usr/local/git/current/bin:$PATH
     fi
 fi
+
+if [[ $IS_BSD -eq 1 ]]; then
+    export PATH=/home/james/.local/bin:$PATH
+fi
