@@ -116,3 +116,8 @@ function adb_reset() {
     adb start-server
     adb devices
 }
+
+# https://stackoverflow.com/questions/11287564/getting-sed-error-illegal-byte-sequence-in-bash
+# Don't export LC_COLLATE=C or LC_ALL=C because it breaks YT builds and breaks
+# the display of unicode characters in other languages (e.g. CJK languages)
+alias sed='LC_ALL=C sed'

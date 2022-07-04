@@ -20,14 +20,6 @@ export ARCHFLAGS='-arch x86_64'
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 
-if [[ $USER == "james" ]]; then
-  # These exports break on YT builds...
-  # CTAGS Sorting in VIM/Emacs is better behaved with this in place
-  export LC_COLLATE=C
-  # https://stackoverflow.com/questions/11287564/getting-sed-error-illegal-byte-sequence-in-bash
-  export LC_ALL=C
-fi
-
 # Node Version Manager
 # npm install -g n
 export N_PREFIX=$HOME/.n
