@@ -92,7 +92,7 @@ alias jformat='python -m json.tool'
 # -------------------------------------------------------------------
 
 # This requires ~/.ssh/config to exist with the right configuration.
-alias seedbox='ssh rhea'
+alias seedbox='ssh papaya'
 alias rslsync='~/rslsync/rslsync --config ~/.rslsync/rslsync.conf'
 
 alias bsd='ssh james@jamesbsd'
