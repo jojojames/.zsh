@@ -80,26 +80,31 @@ if [[ $IS_MAC -eq 1 ]]; then
     # Homebrew Analytics Opt Out
     # https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
     export HOMEBREW_NO_ANALYTICS=1
+    homebrew_bin_m1=/opt/homebrew/bin
+    alias oldbrew=/usr/local/bin/brew
 
     export XCODE_BUILD=$HOME/Library/Developer/Xcode/DerivedData
 
     makeinfo_bin=/usr/local/Cellar/texinfo/6.3/bin
     local_brew_bin=~/.homebrew/bin
 
-    # /usr/local/opt/llvm/bin points to ~> /usr/local/Cellar/llvm/4.0.0/bin
-    llvm_bin=/usr/local/opt/llvm/bin
-    # /usr/local/opt/llvm/lib points to ~> /usr/local/Cellar/llvm/4.0.0/lib
-    export LIBCLANG_LIBDIR=/usr/local/opt/llvm/lib
-
-    osx_paths=$makeinfo_bin:$llvm_bin:$local_brew_bin
+    osx_paths=$makeinfo_bin:$local_brew_bin
     export PATH=$PATH:$osx_paths
 
     if [[ $USER == "james" ]]; then
+        # https://github.com/svaante/dape?tab=readme-ov-file#example-for-macos-using-homebrew
+        # /opt/homebrew/opt/llvm@ -> ../Cellar/llvm/19.1.4
+        llvm_bin=/opt/homebrew/opt/llvm/bin
+        export LIBCLANG_LIBDIR=/usr/local/opt/llvm/lib
+        export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+        export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+        export PATH=$llvm_bin:$PATH
+
         # Android
         export ANDROID_HOME=/Applications/adt-bundle-mac-x86_64-20140702/sdk
         android_tools=$ANDROID_HOME/tools
         android_platform_tools=$ANDROID_HOME/platform-tools
-        export PATH=$android_tools:$android_platform_tools:$PATH
+        export PATH=$homebrew_bin_m1:$android_tools:$android_platform_tools:$PATH
     fi
 
     if [[ $USER == "jameshn" ]]; then
