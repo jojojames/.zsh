@@ -34,7 +34,7 @@ if [[ $IS_LINUX -eq 1 ]]; then
 fi
 
 if [[ $IS_MAC -eq 1 ]]; then
-    export LSCOLORS=Gxfxcxdxbxegedabagacad
+    export LSCOLORS=exfxcxdxcxexexaxaxexex
 fi
 
 # Show Git branch/tag, or name-rev if on detached head
