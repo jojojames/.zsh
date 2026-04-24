@@ -19,7 +19,8 @@ export CLICOLOR=1
 
 # Enable color in grep
 alias grep='grep --color=auto'
-export GREP_COLOR='3;33'
+export GREP_COLORS='mt=3;33'
+
 
 if [[ $IS_LINUX -eq 1 ]]; then
     # This was taken from Xubuntu's .bashrc.
