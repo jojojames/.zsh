@@ -64,8 +64,9 @@ opt_bin=/opt/local/bin
 opt_sbin=/opt/local/sbin
 sbin=/sbin
 usr_sbin=/usr/sbin
+docker_bin=$HOME/.docker/bin
 
-home_paths=$user_bin:$rvm_bin:$cabal_bin:$cask_elisp_bin:$rust_bin
+home_paths=$user_bin:$rvm_bin:$cabal_bin:$cask_elisp_bin:$rust_bin:$docker_bin
 lang_paths=$go_bin:$gopath_bin:$node_bin:$python_bin
 system_paths=$local_bin:$local_sbin:$opt_bin:$opt_sbin:$sbin:$usr_sbin
 
@@ -82,13 +83,16 @@ if [[ $IS_MAC -eq 1 ]]; then
     export HOMEBREW_NO_ANALYTICS=1
     homebrew_bin_m1=/opt/homebrew/bin
     alias oldbrew=/usr/local/bin/brew
+    alias python=python3
+    alias pip=pip3
 
     export XCODE_BUILD=$HOME/Library/Developer/Xcode/DerivedData
 
     makeinfo_bin=/usr/local/Cellar/texinfo/6.3/bin
     local_brew_bin=~/.homebrew/bin
+    dot_local_bin=~/.local/bin
 
-    osx_paths=$makeinfo_bin:$local_brew_bin
+    osx_paths=$dot_local_bin:$makeinfo_bin:$local_brew_bin
     export PATH=$PATH:$osx_paths
 
     if [[ $USER == "james" ]]; then
