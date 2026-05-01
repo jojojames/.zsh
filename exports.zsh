@@ -32,7 +32,12 @@ export FZF_DEFAULT_COMMAND='(git ls-files --exclude-standard --others --cached |
 
 # Virtual Environment Stuff
 if [[ -a /usr/libexec/java_home ]]; then
-    export JAVA_HOME=`/usr/libexec/java_home -v1.8`
+    # Suppress error if Java 1.8 is not found
+    _java_home=$(/usr/libexec/java_home -v1.8 2>/dev/null)
+    if [[ -n "$_java_home" ]]; then
+        export JAVA_HOME="$_java_home"
+    fi
+    unset _java_home
 fi
 
 # Specify $MAILDIR for notmuch and ~maybe~ mu.
