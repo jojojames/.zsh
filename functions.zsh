@@ -8,14 +8,13 @@ fi
 
 if [[ $(uname) = 'Darwin' ]]; then
     IS_MAC=1
+    if [[ $(machine) = 'arm64e' ]]; then
+        IS_M1_MAC=1
+    fi
 fi
 
 if [[ $(uname) = 'FreeBSD' ]]; then
     IS_BSD=1
-fi
-
-if [[ $(machine) = 'arm64e' ]]; then
-    IS_M1_MAC=1
 fi
 
 # -------------------------------------------------------------------
