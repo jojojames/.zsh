@@ -22,8 +22,6 @@ setopt extended_glob
 setopt append_history
 # Save timestamp of command and duration.
 setopt extended_history
-# Add commands as they are typed, don't wait until shell exit.
-setopt inc_append_history
 # When trimming history, lose oldest duplicates first.
 setopt hist_expire_dups_first
 # Do not write events to history that are duplicates of previous events.
