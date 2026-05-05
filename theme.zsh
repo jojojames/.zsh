@@ -38,17 +38,6 @@ if [[ $IS_MAC -eq 1 ]]; then
     export LSCOLORS=exfxcxdxcxexexaxaxexex
 fi
 
-# Show Git branch/tag, or name-rev if on detached head
-function parse_git_branch() {
-    (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
-}
-
-# If inside a Git repository, print its branch and state
-function git_prompt_string() {
-    local git_where="$(parse_git_branch)"
-    [ -n "$git_where" ] && echo "(${PR_BOLD_RED}${git_where#(refs/heads/|tags/)}) "
-}
-
 PROMPT='${PR_BOLD_BLUE}%B%c/%b%{$reset_color%} %(!.#.$)${PR_BLACK}%{$reset_color%} '
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
