@@ -13,9 +13,13 @@ then
     export TERM=xterm-256color
 fi
 
-# This resolves issues install the mysql, postgres
-# and other gems with native non universal binary extensions
-export ARCHFLAGS='-arch x86_64'
+
+# Set arch flags based on platform.
+if [[ $IS_M1_MAC -eq 1 ]]; then
+    export ARCHFLAGS='-arch arm64'
+else
+    export ARCHFLAGS='-arch x86_64'
+fi
 
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
