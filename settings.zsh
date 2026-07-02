@@ -24,8 +24,8 @@ setopt append_history
 setopt extended_history
 # When trimming history, lose oldest duplicates first.
 setopt hist_expire_dups_first
-# Do not write events to history that are duplicates of previous events.
-setopt hist_ignore_dups
+# Remove older duplicates from history when a new command matches them.
+setopt hist_ignore_all_dups
 # Remove command line from history list when first character on the line is a space.
 setopt hist_ignore_space
 # When searching history don't display results already cycled through twice.
