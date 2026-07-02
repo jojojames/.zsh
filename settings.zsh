@@ -50,8 +50,6 @@ setopt auto_menu
 setopt auto_name_dirs
 # Allow completion from within a word/phrase.
 setopt complete_in_word
-# Autoselect the first completion entry.
-setopt menu_complete
 
 # ===== Correction
 # Spelling correction for commands.
