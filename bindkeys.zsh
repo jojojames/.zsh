@@ -40,3 +40,9 @@ bindkey ' ' magic-space
 # https://www.zsh.org/mla/users/2009/msg01018.html
 # Accept completion and enter to avoid having to press RET twice.
 bindkey -M menuselect '^M' .accept-line
+
+# Shift-Tab cycles backward through completions (Tab cycles forward via
+# MENU_COMPLETE). Bound in both the main keymap (menu_complete cycling) and
+# menuselect (interactive menu from `menu select=1`).
+bindkey '^[[Z' reverse-menu-complete
+bindkey -M menuselect '^[[Z' reverse-menu-complete
